@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "MIT License"
+
+[[mods]]
+modId = "zigysmultiloaderutils"
+version = "${version}"
+displayName = "Zigy's Multiloader Utils"
+authors = "Zigy"
+description = '''
+Pretty self explanatory.
+'''
+#logoFile = ""
+
+[[dependencies.zigysmultiloaderutils]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.zigysmultiloaderutils]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
