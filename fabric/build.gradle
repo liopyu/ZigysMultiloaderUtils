@@ -10,6 +10,10 @@ architectury {
 loom {
 }
 
+tasks.withType(Jar) {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
 configurations {
     common
     shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.

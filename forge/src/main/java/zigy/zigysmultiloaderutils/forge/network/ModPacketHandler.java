@@ -17,7 +17,7 @@ public class ModPacketHandler {
     public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(MultiloaderUtils.MOD_ID, "main"),
             () -> PROTOCOL_VERSION,
-            PROTOCOL_VERSION::equals,
+            s -> true,
             PROTOCOL_VERSION::equals
     );
 
@@ -33,5 +33,9 @@ public class ModPacketHandler {
                 .encoder(BufPacketC2S::encode)
                 .consumerMainThread(BufPacketC2S::apply)
                 .add();
+    }
+
+    public static void registerVersionChecker(String mod_id, String version) {
+        NetworkRegistry.newSimpleChannel(new ResourceLocation(mod_id, "version_checker"), () -> version, version::equals, version::equals);
     }
 }

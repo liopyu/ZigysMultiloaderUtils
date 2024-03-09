@@ -1,0 +1,4 @@
+{
+  "zigysmultiloaderutils.missingmod": "Missing mod or wrong version of mod. Server requires:",
+  "zigysmultiloaderutils.servermissingmod": "The server is missing mod or has a wrong version of mod. Client requires:"
+}

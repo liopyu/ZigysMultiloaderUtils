@@ -1,11 +1,9 @@
 package zigy.zigysmultiloaderutils.utils.forge;
 
-import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.server.ServerLifecycleHooks;
-import org.jetbrains.annotations.Nullable;
+import net.minecraftforge.forgespi.language.IModInfo;
 import org.spongepowered.asm.service.MixinService;
 import zigy.zigysmultiloaderutils.misc.ModEnv;
 
@@ -47,8 +45,12 @@ public class PlatformImpl {
         }
     }
 
-    @Nullable
-    public static MinecraftServer getServer() {
-        return ServerLifecycleHooks.getCurrentServer();
+    public static String getModVersion(String modID) {
+        for (IModInfo mod : ModList.get().getMods()) {
+            if (mod.getModId().equals(modID)) {
+                return mod.getVersion().toString();
+            }
+        }
+        return null;
     }
 }

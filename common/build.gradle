@@ -9,6 +9,10 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
 }
 
+jar {
+    archivesBaseName = "$mod_id-common-$minecraft_version"
+}
+
 publishing {
     publications {
         mavenCommon(MavenPublication) {
