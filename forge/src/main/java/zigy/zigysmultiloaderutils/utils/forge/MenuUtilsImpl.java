@@ -41,6 +41,6 @@ public class MenuUtilsImpl {
                 return blockEntity.createMenu(windowId, playerInventory, playerEntity);
             }
         };
-        NetworkHooks.openScreen(player, containerProvider);
+        NetworkHooks.openScreen(player, containerProvider, pos);
     }
 }

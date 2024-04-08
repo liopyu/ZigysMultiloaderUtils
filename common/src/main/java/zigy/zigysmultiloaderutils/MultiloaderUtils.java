@@ -16,7 +16,7 @@ public class MultiloaderUtils {
     }
 
     @ExpectPlatform
-    public static void forceSameModVersion(String mod_id, String version) {
+    public static void forceServerToHaveMod(String mod_id, String version) {
         throw new NotImplementedException();
     }
 }

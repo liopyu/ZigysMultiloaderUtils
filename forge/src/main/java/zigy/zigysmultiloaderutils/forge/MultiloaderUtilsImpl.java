@@ -7,7 +7,7 @@ public class MultiloaderUtilsImpl {
         ModPacketHandler.registerVersionChecker(mod_id, version);
     }
 
-    public static void forceSameModVersion(String mod_id, String version) {
+    public static void forceServerToHaveMod(String mod_id, String version) {
         ModPacketHandler.registerVersionChecker(mod_id, version);
     }
 }

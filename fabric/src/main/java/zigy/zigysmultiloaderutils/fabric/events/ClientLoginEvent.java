@@ -35,6 +35,7 @@ public class ClientLoginEvent implements ClientLoginConnectionEvents.QueryStart 
         ClientLoginNetworking.registerGlobalReceiver(new ResourceLocation(MultiloaderUtils.MOD_ID, "forcesamemodversion"), (client1, handler1, buf, listenerAdder) -> {
             Map<String, String> map = new HashMap<>();
             StringBuilder disconnectMessage = new StringBuilder();
+            boolean firstAppend = true;
             for (Map.Entry<String, byte[]> entry : buf.readMap(FriendlyByteBuf::readUtf, FriendlyByteBuf::readByteArray).entrySet()) {
                 map.put(entry.getKey(), new String(entry.getValue()));
             }
@@ -42,7 +43,11 @@ public class ClientLoginEvent implements ClientLoginConnectionEvents.QueryStart 
                 if (map.containsKey(entry2.getKey()) && map.get(entry2.getKey()).equals(entry2.getValue())) {
                     continue;
                 } else {
-                    disconnectMessage.append(Component.translatable("zigysmultiloaderutils.servermissingmod") + " " + entry2.getKey() + " Version: " + entry2.getValue() + "\n");
+                    if (firstAppend) {
+                        firstAppend = firstAppend;
+                        disconnectMessage.append(Component.translatable("zigysmultiloaderutils.servermissingmod") + "\n");
+                    }
+                    disconnectMessage.append(entry2.getKey() + " Version: " + entry2.getValue() + "\n");
                 }
             }
             if (!disconnectMessage.isEmpty()) {

@@ -28,12 +28,17 @@ public class ServerLoginEvent implements ServerLoginConnectionEvents.QueryStart{
             }
             Map<String, String> map = new HashMap<>();
             StringBuilder disconnectMessage = new StringBuilder();
+            boolean firstAppend = true;
             for (Map.Entry<String, byte[]> entry : buf.readMap(FriendlyByteBuf::readUtf, FriendlyByteBuf::readByteArray).entrySet()) {
                 map.put(entry.getKey(), new String(entry.getValue()));
             }
             for (Map.Entry<String, String> entry2 : requiredMods.entrySet()) {
                 if (!(map.containsKey(entry2.getKey()) && map.get(entry2.getKey()).equals(entry2.getValue()))) {
-                    disconnectMessage.append(Component.translatable("zigysmultiloaderutils.missingmod") + " " + entry2.getKey() + " Version: " + entry2.getValue() + "\n");
+                    if (firstAppend) {
+                        firstAppend = false;
+                        disconnectMessage.append("Missing mod or wrong version of mod(s). Server requires: \n");
+                    }
+                    disconnectMessage.append(entry2.getKey() + " Version: " + entry2.getValue() + "\n");
                 }
             }
             if (!disconnectMessage.isEmpty()) {

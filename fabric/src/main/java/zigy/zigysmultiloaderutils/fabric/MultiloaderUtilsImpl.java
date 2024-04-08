@@ -8,8 +8,7 @@ public class MultiloaderUtilsImpl {
         ServerLoginEvent.requiredMods.put(mod_id, version);
     }
 
-    public static void forceSameModVersion(String mod_id, String version) {
-        ServerLoginEvent.requiredMods.put(mod_id, version);
+    public static void forceServerToHaveMod(String mod_id, String version) {
         ClientLoginEvent.requiredMods.put(mod_id, version);
     }
 }
