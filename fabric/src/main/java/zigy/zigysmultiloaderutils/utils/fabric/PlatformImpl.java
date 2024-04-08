@@ -3,6 +3,7 @@ package zigy.zigysmultiloaderutils.utils.fabric;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import zigy.zigysmultiloaderutils.misc.ModEnv;
+import zigy.zigysmultiloaderutils.misc.ModLoader;
 
 import java.nio.file.Path;
 
@@ -32,5 +33,9 @@ public class PlatformImpl {
 
     public static String getModVersion(String modID) {
         return FabricLoader.getInstance().getModContainer(modID).get().getMetadata().getVersion().getFriendlyString();
+    }
+
+    public static ModLoader getLoader() {
+        return ModLoader.Fabric;
     }
 }

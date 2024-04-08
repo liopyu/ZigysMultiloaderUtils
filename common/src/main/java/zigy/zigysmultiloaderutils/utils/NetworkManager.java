@@ -9,6 +9,7 @@ import org.apache.commons.lang3.NotImplementedException;
 import zigy.zigysmultiloaderutils.misc.ModEnv;
 
 import java.util.Collection;
+import java.util.Optional;
 
 public class NetworkManager {
 
@@ -38,7 +39,7 @@ public class NetworkManager {
     }
 
     public interface PacketContext {
-        Player getPlayer();
+        Optional<Player> getPlayer();
 
         ModEnv getEnvironment();
     }
@@ -52,11 +53,11 @@ public class NetworkManager {
             this.networkInterface = networkInterface;
         }
 
-        public void apply(FriendlyByteBuf buf, Player player, ModEnv env, Side side) {
+        public void apply(FriendlyByteBuf buf, Optional<Player> player, ModEnv env, Side side) {
             if (side == this.side) {
                 PacketContext context = new PacketContext() {
                     @Override
-                    public Player getPlayer() {
+                    public Optional<Player> getPlayer() {
                         return player;
                     }
 
