@@ -5,19 +5,19 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import zigy.zigysmultiloaderutils.MultiloaderUtils;
 
-public class MultiloaderPayload implements CustomPacketPayload {
+public class MultiloaderPacket implements CustomPacketPayload {
 
     public FriendlyByteBuf data;
     public ResourceLocation id;
 
     public static final ResourceLocation defaultID = new ResourceLocation(MultiloaderUtils.MOD_ID, "multiloader_packet");
 
-    public MultiloaderPayload(FriendlyByteBuf buf, ResourceLocation id) {
+    public MultiloaderPacket(FriendlyByteBuf buf, ResourceLocation id) {
         this.data = buf;
         this.id = id;
     }
 
-    public MultiloaderPayload(FriendlyByteBuf buf) {
+    public MultiloaderPacket(FriendlyByteBuf buf) {
         this.data = new FriendlyByteBuf(buf.readBytes(buf.readInt()));
         this.id = buf.readResourceLocation();
     }

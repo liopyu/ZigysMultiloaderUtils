@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
-import zigy.zigysmultiloaderutils.neoforge.network.MultiloaderPayload;
+import zigy.zigysmultiloaderutils.neoforge.network.MultiloaderPacket;
 import zigy.zigysmultiloaderutils.utils.NetworkManager;
 
 import java.util.Collection;
@@ -23,11 +23,11 @@ public class NetworkManagerImpl {
     }
 
     public static void sendToPlayer(ServerPlayer player, ResourceLocation packet, FriendlyByteBuf buf) {
-        PacketDistributor.PLAYER.with(player).send(new MultiloaderPayload(buf, packet));
+        PacketDistributor.PLAYER.with(player).send(new MultiloaderPacket(buf, packet));
     }
 
     public static void sendToServer(ResourceLocation packet, FriendlyByteBuf buf) {
-        PacketDistributor.SERVER.noArg().send(new MultiloaderPayload(buf, packet));
+        PacketDistributor.SERVER.noArg().send(new MultiloaderPacket(buf, packet));
     }
 
     public static void registerReceiver(NetworkManager.Side side, ResourceLocation id, NetworkManager.NetworkInterface networkInterface) {
