@@ -9,8 +9,6 @@ import zigy.zigysmultiloaderutils.misc.ModEnv;
 import zigy.zigysmultiloaderutils.utils.NetworkManager;
 import zigy.zigysmultiloaderutils.utils.Platform;
 
-import java.util.Optional;
-
 public class ClientNetworking {
     public static void sendToServer(ResourceLocation packet, FriendlyByteBuf data) {
         FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
@@ -26,8 +24,8 @@ public class ClientNetworking {
             client.execute(() -> {
                 networkInterface.receive(data, new NetworkManager.PacketContext() {
                     @Override
-                    public Optional<Player> getPlayer() {
-                        return Optional.empty();
+                    public Player getPlayer() {
+                        return null;
                     }
 
                     @Override
