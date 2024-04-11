@@ -1,10 +1,16 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
-
+loom {
+    forge {
+        mixinConfig "zigysmultiloaderutils-common.mixins.json"
+        mixinConfig "zigysmultiloaderutils.mixins.json"
+    }
+}
 architectury {
     platformSetupLoomIde()
-    neoForge()
+    //neoForge()
+    forge()
 }
 
 configurations {
@@ -12,14 +18,16 @@ configurations {
     shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentNeoForge.extendsFrom common
+    //developmentNeoForge.extendsFrom common
+    developmentForge.extendsFrom common
 }
 
 dependencies {
-    neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
-
+    //neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
+    forge "net.minecraftforge:forge:${rootProject.forge_version}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive false }
+    //shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
 processResources {
@@ -50,7 +58,7 @@ sourcesJar {
 }
 
 jar {
-    archivesBaseName = "$mod_id-neoforge-$minecraft_version"
+    archivesBaseName = "$mod_id-forge-$minecraft_version"
 }
 
 components.java {
