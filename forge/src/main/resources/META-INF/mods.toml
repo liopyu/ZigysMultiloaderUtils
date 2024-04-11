@@ -4,23 +4,23 @@ loaderVersion = "[43,)"
 license = "MIT License"
 
 [[mods]]
-modId = "zigysmultiloaderutils"
+modId = "liosmultiloaderutils"
 version = "${version}"
-displayName = "Zigy's Multiloader Utils"
-authors = "Zigy"
+displayName = "Lio's Multiloader Utils"
+authors = "Zigy,Liopyu"
 description = '''
-Pretty self explanatory.
+Lio's Fork of Zigy's Multiloader Utils
 '''
 #logoFile = ""
 
-[[dependencies.zigysmultiloaderutils]]
+[[dependencies.liosmultiloaderutils]]
 modId = "forge"
 mandatory = true
 versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.zigysmultiloaderutils]]
+[[dependencies.liosmultiloaderutils]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.19.2,)"

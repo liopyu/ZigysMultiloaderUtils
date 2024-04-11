@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "zigysmultiloaderutils",
+  "id": "liosmultiloaderutils",
   "version": "${version}",
   "name": "Zigy's Multiloader Utils",
   "description": "Pretty self explanatory.",
@@ -16,15 +16,15 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "zigy.zigysmultiloaderutils.fabric.MultiloaderUtilsFabric"
+      "lio.liosmultiloaderutils.fabric.MultiloaderUtilsFabric"
     ],
     "client": [
-      "zigy.zigysmultiloaderutils.fabric.MultiloaderUtilsFabricClient"
+      "lio.liosmultiloaderutils.fabric.MultiloaderUtilsFabricClient"
     ]
   },
   "mixins": [
-    "zigysmultiloaderutils.mixins.json",
-    "zigysmultiloaderutils-common.mixins.json"
+    "liosmultiloaderutils.mixins.json",
+    "liosmultiloaderutils-common.mixins.json"
   ],
   "depends": {
     "fabric": "*",

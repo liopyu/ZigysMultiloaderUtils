@@ -10,8 +10,8 @@ architectury {
 loom {
 
     forge {
-        mixinConfig "zigysmultiloaderutils-common.mixins.json"
-        mixinConfig "zigysmultiloaderutils.mixins.json"
+        mixinConfig "liosmultiloaderutils-common.mixins.json"
+        mixinConfig "liosmultiloaderutils.mixins.json"
     }
 }
 
