@@ -12,9 +12,11 @@ import java.util.Collection;
 
 public class NetworkManager {
 
-    @ExpectPlatform
+
     public static void sendToPlayers(Collection<ServerPlayer> players, ResourceLocation packet, FriendlyByteBuf buf) {
-        throw new NotImplementedException();
+        for (ServerPlayer player : players) {
+            sendToPlayer(player, packet, new FriendlyByteBuf(buf.copy()));
+        }
     }
 
     @ExpectPlatform
