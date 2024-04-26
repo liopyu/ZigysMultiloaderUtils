@@ -10,11 +10,7 @@ import lio.liosmultiloaderutils.utils.NetworkManager;
 import java.util.Collection;
 
 public class NetworkManagerImpl {
-    public static void sendToPlayers(Collection<ServerPlayer> players, ResourceLocation packet, FriendlyByteBuf buf) {
-        for (ServerPlayer player : players) {
-            sendToPlayer(player, packet, buf);
-        }
-    }
+
 
     public static void sendToPlayer(ServerPlayer player, ResourceLocation packet, FriendlyByteBuf buf) {
         ServerNetworking.sendToPlayer(player, packet, buf);
